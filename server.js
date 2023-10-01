@@ -1,12 +1,15 @@
 const express = require('express');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
-
+const path = require('path'); 
+const express = require('express');
 const app = express();
 
 app.use(express.json());
 
 let users = []; // Temporary storage. Replace with a database later.
+
+app.use(express.static(path.join(__dirname, 'public')));
 
 // Register User
 app.post('/register', async (req, res) => {
